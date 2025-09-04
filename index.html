@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEART</title>
+</head>
+<body>
+
+    <style> 
+body{
+
+    background: #000;
+    color: antiquewhite;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    
+}
+span{
+
+     background: url("https://cdn4.iconfinder.com/data/icons/set-1/32/__1-128.png");
+    width: 110px;
+    height: 100px;
+    background-size: 50px;
+    position: absolute;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 50%);
+    pointer-events: none;
+    animation: animationHeart 6s infinite linear ;
+    
+   
+
+}
+
+
+
+@keyframes animationHeart { 
+
+    0% {
+                transform: translate(-50%, 50%);
+                 opacity: 1;
+                 filter: hue-rotate(0);
+    }
+    
+
+    100% {
+                transform: translate(50%,-5000%);
+                 opacity: 2;
+                 filter: hue-rotate(92222080deg);
+
+    }
+
+    }
+
+
+
+
+    
+    
+
+
+    </style>
+
+<h1>heart Animation</h1>
+
+<span id="heart">  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script> 
+
+const bodyEl = document.querySelector("body")
+
+bodyEl.addEventListener("mousemove", (evt)=>{
+
+    // let posX = evt.offsetX
+    // let posY =  evt.offsetY
+    let posX = evt.clientX;
+    let posY = evt.clientY;
+    
+    let sizeW = Math.random()*150;
+
+    let spanEl = document.createElement("span")
+    spanEl.style.top =  posY +"px"
+    spanEl.style.left =  posX +"px"
+    spanEl.style.backgroundSize = sizeW + "px " + sizeW + "px";
+
+    
+    bodyEl.appendChild(spanEl);
+
+    setTimeout(() => {
+        bodyEl.removeChild(spanEl)
+    }, 4000);
+}
+)
+
+
+    </script>
+</body>
+</html>
